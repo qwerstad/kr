@@ -8,30 +8,20 @@
 
 #include <stdio.h>
 
+#define UPPER 500
+#define LOWER 0
+#define STEP 20
+
+float fahrtocels(int fahr);
+
 int main(void){
-    int c;
+    printf("%s\t%s\n", "Fahr", "Celsius");
     
-    // The array charcount keeps the number of occurences of a character
-    int charcount[224];
-    
-    // Initialize charcount to 0 for all characters
-    for (int i = 0; i < 224; ++i){
-        charcount[i] = 0;
+    for (int fahr = LOWER; fahr <= UPPER; fahr = fahr+STEP){
+        printf("%4d\t%7.1f\n", fahr, fahrtocels(fahr));
     }
-    
-    // Start reading the input stream
-    while ((c = getchar()) != EOF){
-        if (c >= ' '){
-            ++charcount[c-' '];
-        }
-    }
-    
-    // Print the histogram
-    for (int i = 1; i < 224; ++i){
-        printf("%c: ", i+32);
-        for (int j = 0; j < charcount[i]; ++j){
-            printf("%c", '|');
-        }
-        printf("\n");
-    }
+}
+
+float fahrtocels(int fahr){
+    return (5.0 * (fahr-32) / 9.0);
 }
