@@ -1,20 +1,14 @@
 #include <stdio.h>
 
-int main(void)
-{
-    int c;
+int main(void){
+    int c, pc = EOF;
     
-    while ((c = getchar()) != EOF){
-        if (c == '\t'){
-            putchar('\\');
-            putchar('t');
-        }else if (c == '\b'){
-            putchar('\\');
-            putchar('b');
-        }else if (c == '\\'){
-            putchar('\\');
-            putchar('\\');
-        }else
+    while ((c=getchar()) != EOF) {
+        if ((c != ' ')&&(c != '\t')) {
             putchar(c);
+        }else if ((pc != ' ')&&(pc != '\t')) {
+            putchar('\n');
+        }
+        pc = c;
     }
 }
