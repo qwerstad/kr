@@ -2,13 +2,19 @@
 
 int main(void)
 {
-    int c, pc = EOF;
+    int c;
     
     while ((c = getchar()) != EOF){
-        if (pc != ' ')
+        if (c == '\t'){
+            putchar('\\');
+            putchar('t');
+        }else if (c == '\b'){
+            putchar('\\');
+            putchar('b');
+        }else if (c == '\\'){
+            putchar('\\');
+            putchar('\\');
+        }else
             putchar(c);
-        if ((pc == ' ') && (c != ' '))
-            putchar(c);
-        pc = c;
     }
 }
