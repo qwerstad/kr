@@ -1,27 +1,28 @@
-//
-//  main.c
-//  KerriganRitchie
-//
-//  Created by Deniz Kaya on 05/11/16.
-//  Copyright © 2016 Deniz Kaya. All rights reserved.
-//
+#include <stdio.h>
+
+// print Fahrenheit-Celsius Table for
+// fahr = 0, 20, .., 300
 
 #include <stdio.h>
 
-#define UPPER 500
-#define LOWER 0
-#define STEP 20
+// print Celsius-Fahrenheit Table for
+// fahr = 0, 20, .., 300
 
-float fahrtocels(int fahr);
-
-int main(void){
-    printf("%s\t%s\n", "Fahr", "Celsius");
+int main(void)
+{
+    float fahr, celsius;
+    int lower, upper, step;
     
-    for (int fahr = LOWER; fahr <= UPPER; fahr = fahr+STEP){
-        printf("%4d\t%7.1f\n", fahr, fahrtocels(fahr));
+    lower = 0;      // lower limit of temperature table
+    upper = 300;    // upper limit
+    step = 20;      // step size
+    
+    printf("%s\t%s\n", "Celsius", "  Fahr");
+    
+    celsius = lower;
+    while (celsius <= upper) {
+        fahr = 9.0 * celsius / 5.0 + 32;
+        printf("%7.0f\t%6.1f\n", celsius, fahr);
+        celsius = celsius + step;
     }
-}
-
-float fahrtocels(int fahr){
-    return (5.0 * (fahr-32) / 9.0);
 }
