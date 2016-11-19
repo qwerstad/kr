@@ -4,7 +4,12 @@ int main(void)
 {
     char c;
     
-    while ((c = getchar()) != EOF){
-        putchar(c);
+    c = getchar();
+    
+    while (c != EOF){
+        // putchar(c);
+        c = getchar();
     }
+    
+    printf("%s\n", "EOF found");
 }
