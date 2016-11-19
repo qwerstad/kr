@@ -2,13 +2,13 @@
 
 int main(void)
 {
-    int c;
-    int num=0;
+    int c, pc = EOF;
     
     while ((c = getchar()) != EOF){
-        if (c == ' ')
-            ++num;
+        if (pc != ' ')
+            putchar(c);
+        if ((pc == ' ') && (c != ' '))
+            putchar(c);
+        pc = c;
     }
-    printf("\n");
-    printf("%s%d\n","Number of blanks: ", num);
 }
