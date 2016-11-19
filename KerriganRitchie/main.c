@@ -20,7 +20,8 @@ main()
             }
     
     if (max > 0)
-        printf("%s has length %d\n", longest, max-1);
+        //printf("%s has length %d\n", longest, max-1);
+        printf("%s\n", longest);
     return 0;
 }
 
