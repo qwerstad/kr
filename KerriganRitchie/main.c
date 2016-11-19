@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXLINE 10 /* maximum input line size*/
+#define MAXLINE 1000 /* maximum input line size*/
 
 int getlineex(char line[], int maxline);
 void copy(char to[], char from[]);
@@ -14,14 +14,10 @@ main()
     
     max = 0;
     while ((len = getlineex(line, MAXLINE)) > 0)
-        if (line[len-1] == '\n') {
             if (len > max) {
                 max = len;
                 copy(longest, line);
             }
-        } else if (line[len-1] == '\0') {
-            max = max + len;
-        };
     
     if (max > 0)
         printf("%s has length %d\n", longest, max-1);
